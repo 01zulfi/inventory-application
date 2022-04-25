@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CountrySchema = new Schema({
-  name: { type: String },
-  capital: { type: String },
+  name: { type: String, required: true },
+  capital: { type: String, required: true },
   population: { type: String },
-  nationalLanguage: [{ type: String }],
-  continents: [{ type: Schema.ObjectId, ref: 'Continent' }],
+  nationalLanguage: [{ type: String, required: true }],
+  continents: [{ type: Schema.ObjectId, ref: 'Continent', required: true }],
   groupings: [{ type: Schema.ObjectId, ref: 'Grouping' }],
 });
 
