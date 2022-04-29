@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+  h1= title
+
+  form(action="", method="POST") 
+    div 
+      label(for="grouping-name") Name:
+      input(type="text" placeholder="Enter grouping's name here..." id="grouping-name" name="name")
+    div 
+      label(for="grouping-short-name") Short Name:
+      input(type="text" placeholder="Enter grouping's short name here..." id="grouping-short-name" name="shortName")
+    div 
+      label(for="grouping-description") Description:
+      input(type="text" placeholder="Enter grouping's description here..." id="grouping-description" name="description")
+    div
+      label Countries:
+      div
+        for country in countries
+          div
+            input(type='checkbox', name='genre', id=country._id, value=country._id, checked=country.checked )
+            label(for=country._id) #{country.name}
+    button(type="submit") Submit 
