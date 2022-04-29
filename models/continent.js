@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const ContinentSchema = new Schema({
   name: { type: String, required: true },
-  countries: [{ type: Schema.ObjectId, ref: 'Country', required: true }],
+  countries: [{ type: Schema.ObjectId, ref: 'Country' }],
 });
 
 ContinentSchema.virtual('url').get(() => `/continent/${this._id}`);

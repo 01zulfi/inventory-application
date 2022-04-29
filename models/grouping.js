@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const GroupingSchema = new Schema({
   name: { type: String, required: true },
   shortName: { type: String, required: true },
+  description: { type: String },
   countries: [{ type: Schema.ObjectId, ref: 'Country', required: true }],
 });
 
