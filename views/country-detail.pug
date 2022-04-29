@@ -1,0 +1,25 @@
+extends layout
+
+block content 
+  h1= title 
+  section 
+    h2
+     each continent in country.continents 
+        a(href=continent.url) #{continent.name}
+    h3 Capital: #{country.capital}
+    h4 Population: #{country.population}
+    div 
+      strong National Languages:
+      ul
+      each language in country.nationalLanguage 
+        p= language 
+      else 
+        p #{country.name} does not have a national language.
+    div 
+      strong Groupings:
+      ul 
+      each grouping in country.groupings 
+        li 
+          a(href=grouping.url) #{grouping.name}
+      else 
+        p #{country.name} is not part of any grouping.
