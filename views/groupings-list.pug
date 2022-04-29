@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  h1 Groupings
+  section 
+    ul 
+    each grouping in groupingsList 
+      li 
+        a(href=grouping.url) #{grouping.name}
+        p Number of countries: #{grouping.countries.length}
+    else 
+      p There are no groupings.
+  hr
+  a(href="/") Home

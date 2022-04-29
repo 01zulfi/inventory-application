@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  h1= title 
+  h2= grouping.shortName 
+  h4= grouping.description 
+  section  
+    ul 
+    each country in grouping.countries 
+      li
+        a(href=country.url) #{country.name}
+  hr
+  a(href="/groupings") All Groupings
