@@ -1,5 +1,5 @@
 const Grouping = require('../models/grouping');
-require('../models/country');
+const Country = require('../models/country');
 
 const groupingsList = (req, res, next) => {
   Grouping.find({}).exec((err, result) => {
@@ -23,6 +23,16 @@ const groupingDetail = (req, res, next) => {
     });
 };
 
-const groupingController = { groupingsList, groupingDetail };
+const groupingCreateGet = (req, res, next) => {
+  Country.find({}).exec((err, result) => {
+    if (err) return next(err);
+    return res.render('grouping-form', {
+      title: 'Create a Grouping',
+      countries: result,
+    });
+  });
+};
+
+const groupingController = { groupingsList, groupingDetail, groupingCreateGet };
 
 module.exports = groupingController;
