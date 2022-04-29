@@ -1,0 +1,11 @@
+extend layout 
+
+block content  
+  h1= title
+  ul
+    each continent in continentsList 
+      li 
+        a(href=continent.url) #{continent.name}
+        p Number of countries: #{continent.countries.length}
+  hr
+  a(href="/") Home

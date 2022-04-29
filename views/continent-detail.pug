@@ -1,0 +1,14 @@
+extends layout
+
+block content 
+
+  h1= title
+  section 
+    ul
+    each country in continent.countries
+     li 
+       a(href=country.url) #{country.name}
+    else 
+      p #{continent.name} has no countries.
+  hr
+  a(href="/continents") All Continents
