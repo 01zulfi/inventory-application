@@ -11,6 +11,8 @@ const CountrySchema = new Schema({
   groupings: [{ type: Schema.ObjectId, ref: 'Grouping' }],
 });
 
-CountrySchema.virtual('url').get(() => `/country/${this._id}`);
+CountrySchema.virtual('url').get(function getCountryUrl() {
+  return `/country/${this._id}`;
+});
 
 module.exports = mongoose.model('Country', CountrySchema);

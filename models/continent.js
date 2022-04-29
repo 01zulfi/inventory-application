@@ -7,6 +7,8 @@ const ContinentSchema = new Schema({
   countries: [{ type: Schema.ObjectId, ref: 'Country' }],
 });
 
-ContinentSchema.virtual('url').get(() => `/continent/${this._id}`);
+ContinentSchema.virtual('url').get(function getContinentUrl() {
+  return `/continent/${this._id}`;
+});
 
 module.exports = mongoose.model('Continent', ContinentSchema);
