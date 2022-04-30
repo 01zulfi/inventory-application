@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+  h1= title 
+  form(action="", method="post") 
+    div   
+      label(for="continent-name") Continent Name:
+      input(type="text" id="continent-name" name="name" value=(name || '') required placeholder='Enter continent name...')
+    button(type="submit") Submit
