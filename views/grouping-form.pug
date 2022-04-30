@@ -6,18 +6,18 @@ block content
   form(action="", method="POST") 
     div 
       label(for="grouping-name") Name:
-      input(type="text" placeholder="Enter grouping's name here..." id="grouping-name" name="name")
+      input(type="text" placeholder="Enter grouping's name here..." id="grouping-name" name="name" value=(name || ''))
     div 
       label(for="grouping-short-name") Short Name:
-      input(type="text" placeholder="Enter grouping's short name here..." id="grouping-short-name" name="shortName")
+      input(type="text" placeholder="Enter grouping's short name here..." id="grouping-short-name" name="shortName" value=(shortName || ''))
     div 
       label(for="grouping-description") Description:
-      input(type="text" placeholder="Enter grouping's description here..." id="grouping-description" name="description")
+      input(type="text" placeholder="Enter grouping's description here..." id="grouping-description" name="description" value=(description || ''))
     div
       label Countries:
       div
         for country in countries
           div
-            input(type='checkbox', name='genre', id=country._id, value=country._id, checked=country.checked )
+            input(type='checkbox', name='country', id=country._id, value=country._id, checked=country.checked )
             label(for=country._id) #{country.name}
     button(type="submit") Submit 
