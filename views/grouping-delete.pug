@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+  h1= title 
+  h2 Do you really want to delete this Grouping?
+  div 
+    h4 #{grouping.name} (#{grouping.shortName})
+    p= grouping.description
+  form(action="", method="post") 
+    input(type="hidden", name="groupingId" value=grouping._id)
+    button(type="submit") Delete #{grouping.name}

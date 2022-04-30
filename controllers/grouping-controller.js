@@ -148,6 +148,23 @@ const groupingUpdatePost = [
   },
 ];
 
+const groupingDeleteGet = (req, res, next) => {
+  Grouping.findById(req.params.id).exec((err, result) => {
+    if (err) return next(err);
+    return res.render('grouping-delete', {
+      title: 'Delete Grouping',
+      grouping: result,
+    });
+  });
+};
+
+const groupingDeletePost = (req, res, next) => {
+  Grouping.findByIdAndRemove(req.params.id, (err) => {
+    if (err) return next(err);
+    return res.redirect('/groupings');
+  });
+};
+
 const groupingController = {
   groupingsList,
   groupingDetail,
@@ -155,6 +172,8 @@ const groupingController = {
   groupingCreatePost,
   groupingUpdateGet,
   groupingUpdatePost,
+  groupingDeleteGet,
+  groupingDeletePost,
 };
 
 module.exports = groupingController;
