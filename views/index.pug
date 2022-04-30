@@ -2,4 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  section 
+    div 
+      a(href="/countries") Countries: #{data.countryCount}
+    div 
+      a(href="/continents") Continents: #{data.continentCount}
+    div 
+      a(href="/groupings") Grouping: #{data.groupingCount}
